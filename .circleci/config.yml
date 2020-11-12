@@ -12,7 +12,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: apt-get install sshpass
+      - run: sudo apt-get install sshpass
 #      - run: sshpass -p $ssh_passwd ssh circle-ci@ec2-18-223-143-183.us-east-2.compute.amazonaws.com
 workflows:
   my_flow:

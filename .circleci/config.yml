@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build_docker:
+  build_docker_im:
     machine: true
       #- image: cimg/base:2020.01
         #auth:
@@ -9,12 +9,12 @@ jobs:
     steps:
       - checkout
       - run: echo "$DOCKER_PASS" $DOCKER_USER
-      - run: |
-        echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+      - run: echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
       - run: docker build -t yupi/nginx .
       - run: docker push yupi/nginx
 
 workflows:
   my_flow:
     jobs:
-      - build_docker
+      - build_docker_im:
+        context: DockerHub

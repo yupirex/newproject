@@ -14,10 +14,7 @@ jobs:
       - checkout
       - run: sudo apt update
       - run: sudo apt-get -yq install sshpass
-      - run: sshpass -p $ssh_passwd ssh circle-ci@ec2-18-222-172-174.us-east-2.compute.amazonaws.com
-      - run: docker pull yupi/nginx
-      - run: docker run --rm --name nginx -p 80:80 -p1280:1280 -d yupi/nginx
-      - run: exit
+      - run: sshpass -p $ssh_passwd ssh circle-ci@ec2-18-222-172-174.us-east-2.compute.amazonaws.com 'docker pull yupi/nginx; docker run --rm --name nginx -p 80:80 -p1280:1280 -d yupi/nginx'
 workflows:
   install_nginx_on_AWS:
     jobs:

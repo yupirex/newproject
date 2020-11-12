@@ -1,8 +1,13 @@
-version: 2.1
+version: 2
 jobs:
-  build:
+  build_docker:
     docker:
       - image: cimg/base:2020.01
-  steps:
-    - checkout
-    - run: echo docker build .
+    steps:
+      - checkout
+      - run: echo docker build .
+
+workflows:
+  my-workflow:
+    jobs:
+      - build_docker:

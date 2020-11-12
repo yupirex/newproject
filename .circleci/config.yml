@@ -13,3 +13,7 @@ jobs:
           command: |
             echo 'Hello World!'
             ls -lah
+workflows:
+  my_flow:
+    jobs:
+      - build_docker

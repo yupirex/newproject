@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build_docker_im:
+  build_docker:
     machine: true
       #- image: cimg/base:2020.01
         #auth:
@@ -16,5 +16,5 @@ jobs:
 workflows:
   my_flow:
     jobs:
-      - build_docker_im:
-        context: DockerHub
+      - build_docker:
+          context: DockerHub

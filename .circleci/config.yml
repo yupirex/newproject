@@ -2,7 +2,6 @@ version: 2.1
 jobs:
   build_docker:
     machine: true
-
     steps:
       - checkout
       - run: echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
@@ -10,8 +9,8 @@ jobs:
       - run: docker push yupi/nginx
 
   deploy_aws:
-    machine: true
     steps:
+      - checkout
       - run: apt-get install sshpass
       - run: sshpass -p $ssh_passwd ssh circle-ci@ec2-18-223-143-183.us-east-2.compute.amazonaws.com
 workflows:
@@ -20,6 +19,8 @@ workflows:
       - build_docker:
           context: DockerHub
       - deploy_aws:
+          requires:
+            - build_docker
           context: AWS
 
 # AllowUsers circle-ci

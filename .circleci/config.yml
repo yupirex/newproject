@@ -1,14 +1,15 @@
 version: 2.1
 jobs:
-  build:
+  build_docker:
     docker:
       - image: alpine:3.7
         #auth:
           #username: mydockerhub-user
           #password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
+      - checkout
       - run:
           name: The First Step
           command: |
             echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+            ls -lah

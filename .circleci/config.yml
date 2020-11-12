@@ -6,4 +6,3 @@ jobs:
   steps:
     - checkout
     - run: echo docker build .
-version: 2

@@ -13,6 +13,7 @@ jobs:
           command: |
             echo 'Hello World!'
             ls -lah
+      - run: docker help
       - run: docker build -t yupi/nginx .
 
 workflows:

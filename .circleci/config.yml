@@ -1,8 +1,8 @@
 version: 2.1
 jobs:
   build_docker:
-    docker:
-      - image: cimg/base:2020.01
+    machine: true
+      #- image: cimg/base:2020.01
         #auth:
           #username: mydockerhub-user
           #password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
@@ -13,7 +13,6 @@ jobs:
           command: |
             echo 'Hello World!'
             ls -lah
-      - run: docker help
       - run: docker build -t yupi/nginx .
 
 workflows:

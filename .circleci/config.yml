@@ -8,12 +8,11 @@ jobs:
           #password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            ls -lah
+      - run: echo "$DOCKER_PASS" $DOCKER_USER
+      - run: |
+        echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
       - run: docker build -t yupi/nginx .
+      - run: docker push yupi/nginx
 
 workflows:
   my_flow:

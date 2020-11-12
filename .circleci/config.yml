@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build_docker:
     docker:
-      - image: alpine:3.7
+      - image: cimg/base:2020.01
         #auth:
           #username: mydockerhub-user
           #password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference

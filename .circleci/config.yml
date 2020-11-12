@@ -13,7 +13,7 @@ jobs:
           command: |
             echo 'Hello World!'
             ls -lah
-      - run: - run: docker build -t yupi/nginx:0.0.1 .
+      - run: docker build -t yupi/nginx:0.0.1 .
 
 workflows:
   my_flow:

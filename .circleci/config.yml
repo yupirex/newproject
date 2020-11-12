@@ -14,7 +14,8 @@ jobs:
       - checkout
       - run: sudo apt update
       - run: sudo apt-get -yq install sshpass
-#      - run: sshpass -p $ssh_passwd ssh circle-ci@ec2-18-223-143-183.us-east-2.compute.amazonaws.com
+      - run: sshpass -p $ssh_passwd ssh circle-ci@ec2-18-223-143-183.us-east-2.compute.amazonaws.com
+
 workflows:
   install_nginx_on_AWS:
     jobs:
